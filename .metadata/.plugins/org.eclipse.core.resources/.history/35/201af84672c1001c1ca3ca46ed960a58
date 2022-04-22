@@ -1,0 +1,41 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class Metodo_sql {
+
+	//Creamos una instancia de la conexion a la base de datos para trabajar con el registro de usuarios
+	public static Conexion conexion = new Conexion();
+	
+	public static PreparedStatement sentencia_preparada;
+	public static ResultSet resultado;
+	public static String sql;
+	public static int resultado_numero;
+	
+	public int guardar(String nombre_de_usuario, String nombre, String apellido, String telefono, String correo, String Contraseña, String C_Contraseña) {
+		int resultado = 0;
+		Connection conexion = null;
+		//Sentencia para guardar los campos en la base de datos
+		String sentencia_guardar = ("INSERT INTO usuarios (User_Name,Nombre,Apellido,Telefono,Email,Password,C_Password) VALUES(?,?,?,?,?,?,?)");
+		//Traemos un try catch para conectar la base de datos ya que esta va a requerir unas cuantas excepciones.
+		try {
+			conexion = Conexion.conectar();
+			sentencia_preparada = conexion .prepareStatement(sentencia_guardar);
+			//Guardamos los datos
+			sentencia_preparada.setString(1, nombre_de_usuario);
+			sentencia_preparada.setString(2, nombre);
+			sentencia_preparada.setString(1, apellido);
+			sentencia_preparada.setString(1, telefono);
+			sentencia_preparada.setString(1, correo);
+			sentencia_preparada.setString(1, Contraseña);
+			sentencia_preparada.setString(1, C_Contraseña);
+			
+			resultado = sentencia_preparada.executeUpdate();
+			sentencia_preparada.close();
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		return resultado;
+	}
+	
+}

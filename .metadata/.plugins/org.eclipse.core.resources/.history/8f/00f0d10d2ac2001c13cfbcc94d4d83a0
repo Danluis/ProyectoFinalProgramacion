@@ -1,0 +1,135 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.JTable;
+import javax.swing.JButton;
+import javax.swing.JScrollBar;
+
+
+public class frm_usuario extends JFrame {
+
+	private JPanel contentPane;
+	public static DefaultTableModel model;
+	private JTable table;
+
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frm_usuario frame = new frm_usuario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frm_usuario() {
+
+		//Aqui tenemos la conexion de la tabla con la base de datos
+		
+		//Cargar();
+
+		
+		setTitle("Usuario");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 528, 402);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Clientes registrados");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel.setBounds(98, 11, 316, 48);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Regresar");
+		btnNewButton.setBounds(363, 301, 127, 35);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Actualizar");
+		btnNewButton_1.setBounds(146, 301, 106, 35);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Nuevo");
+		btnNewButton_1_1.setBounds(32, 301, 106, 35);
+		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_2 = new JButton("Eliminar");
+		btnNewButton_1_2.setBounds(250, 301, 117, 35);
+		contentPane.add(btnNewButton_1_2);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(462, 70, 17, 202);
+		contentPane.add(scrollBar);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null},
+			},
+			new String[] {
+				"User_name", "Nombre", "Apellido", "Telefono", "Email", "Contrase\u00F1a", "C_Contrase\u00F1a"
+			}
+		));
+		table.getColumnModel().getColumn(6).setPreferredWidth(89);
+		table.setBounds(32, 70, 448, 210);
+		contentPane.add(table);
+		
+		
+		
+	}
+
+	/*public void Cargar() {
+		frm_usuario tabla = new frm_usuario();
+		   String[] titulos = {"UserName","Nombre","Apellido","Telefono","Email","Password","C_Password"};
+		   String [] registros = new String[50];
+		   
+		   String sql = "SELECT * FROM usuarios";
+		   model = new DefaultTableModel(null,titulos);
+	       Conexion cc = new Conexion();
+	       Connection conect = cc.conectar();
+	       try {
+	    	   Statement st = (Statement) conect.createStatement();
+	    	   ResultSet rs = st.executeQuery(sql);
+	    	   while (rs.next()) {
+	    		   registros [0] = rs.getString("User_Name");
+	    		   registros [1] = rs.getString("Nombre");
+	    		   registros [2] = rs.getString("Apellido");
+	    		   registros [3] = rs.getString("Telefono");
+	    		   registros [4] = rs.getString("Email");
+	    		   registros [5] = rs.getString("Password");
+	    		   registros [6] = rs.getString("C_Password");
+	    		   
+	    		   model.addRow(registros);
+	    	   }  
+	    		   tabla.tablaUsuario.setModel(model);
+	    	   }catch (SQLException e) {
+	    		   JOptionPane.showMessageDialog(null, e);
+	    	   }
+	   }*/
+	
+	
+}

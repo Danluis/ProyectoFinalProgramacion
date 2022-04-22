@@ -1,0 +1,22 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class Metodo_sql {
+
+	//Creamos una instancia de la conexion a la base de datos para trabajar con el registro de usuarios
+	public static Conexion conexion = new Conexion();
+	
+	public static PreparedStatement sentencia_preparada;
+	public static ResultSet resultado;
+	public static String sql;
+	public static int resultado_numero;
+	
+	public int guardar(String nombre_de_usuario, String nombre, String apellido, String telefono, String correo, String Contraseña, String C_Contraseña) {
+		int resultado = 0;
+		Connection conexion = null;
+		//Sentencia para guardar los campos en la base de datos
+		String sentencia_guardar = ("INSERT INTO usuarios (User_Nmae,Nombre,Apellido,Telefono,Email,Password,C_Password) VALUES(?,?,?,?,?,?,?)");
+	}
+	
+}

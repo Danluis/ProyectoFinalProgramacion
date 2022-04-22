@@ -1,0 +1,62 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class frm_principal extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frm_principal frame = new frm_principal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frm_principal() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 524, 261);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Usuarios");
+		btnNewButton.setBounds(27, 11, 141, 158);
+		contentPane.add(btnNewButton);
+		
+		JButton btnProductos = new JButton("Productos");
+		btnProductos.setBounds(195, 11, 141, 158);
+		contentPane.add(btnProductos);
+		
+		JButton btnNewButton_1 = new JButton("Cerrar sesion");
+		btnNewButton_1.setBounds(402, 11, 109, 31);
+		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("Inicio de sesion como: ");
+		lblNewLabel.setBounds(27, 197, 109, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lbNombre = new JLabel("");
+		lbNombre.setBounds(144, 197, 162, 14);
+		contentPane.add(lbNombre);
+	}
+
+}

@@ -1,0 +1,70 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.JButton;
+
+public class frm_usuario extends JFrame {
+
+	private JPanel contentPane;
+	private JTable tablaUsuario;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					frm_usuario frame = new frm_usuario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public frm_usuario() {
+		setTitle("Usuario");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 528, 402);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Clientes registrados");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel.setBounds(98, 11, 316, 48);
+		contentPane.add(lblNewLabel);
+		
+		tablaUsuario = new JTable();
+		tablaUsuario.setBounds(32, 70, 448, 202);
+		contentPane.add(tablaUsuario);
+		
+		JButton btnNewButton = new JButton("Regresar");
+		btnNewButton.setBounds(363, 301, 127, 35);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Actualizar");
+		btnNewButton_1.setBounds(146, 301, 106, 35);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Nuevo");
+		btnNewButton_1_1.setBounds(32, 301, 106, 35);
+		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_2 = new JButton("Eliminar");
+		btnNewButton_1_2.setBounds(250, 301, 117, 35);
+		contentPane.add(btnNewButton_1_2);
+	}
+}

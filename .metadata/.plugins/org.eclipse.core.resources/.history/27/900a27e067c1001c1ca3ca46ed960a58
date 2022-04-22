@@ -1,0 +1,5 @@
+
+public class Metodo_sql {
+
+	public static Conexion conexion = new Conexion();
+}
